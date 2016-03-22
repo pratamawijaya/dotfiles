@@ -5,17 +5,14 @@ export ZSH=/Users/pratama/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="cloud"
-ZSH_THEME="fino-time"
-#ZSH_THEME="mortalscumbag"
-#ZSH_THEME="macovsky"
-#ZSH_THEME="bullet-train"
-#ZSH_THEME="gentoo"
-#ZSH_THEME="af-magic"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -52,19 +49,16 @@ ZSH_THEME="fino-time"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-git git-flow
-osx brew
-sublime
-vagrant
-)
+plugins=(git)
 
 # User configuration
 
-export PATH="/Users/pratama/Documents/SDK/android-sdk-macosx/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/Users/pratama/Documents/SDK/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export ANDROID_HOME="/Users/pratama/Documents/SDK/android-sdk-macosx/"
+export ANDROID_HOME="/Users/pratama/Documents/SDK"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
+
 
 source $ZSH/oh-my-zsh.sh
 
