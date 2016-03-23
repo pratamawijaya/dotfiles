@@ -18,4 +18,5 @@
   ci = commit
   st = status
   co = checkout 
-  a  = add . 
+  a  = add .
+  b  = branch 
