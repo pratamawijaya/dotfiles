@@ -53,12 +53,15 @@ plugins=(git git-flow osx npm battery zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/Users/pratama/Documents/SDK/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
+export PATH="/usr/local/mysql/bin:/Users/pratama/Documents/SDK_BARU/platform-tools:/Users/pratama/Documents/SDK_BARU/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export ANDROID_HOME="/Users/pratama/Documents/SDK"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
+export ANDROID_HOME="/Users/pratama/Documents/SDK_BARU"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home"
+export SIGN_KEYPASS="kulina"
 
+export PATH=$PATH:/Users/pratama/Documents/SDK_BARU/platform-tools
+export PATH=$PATH:/Users/pratama/Documents/SDK_BARU/tools
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,4 +91,20 @@ export EDITOR='vim -N'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+eval "$(thefuck --alias)"
+
+alias composer="php /usr/local/bin/composer.phar"
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/pratama/google-cloud-sdk/path.zsh.inc'
+# Sonnar
+SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.5/libexec
+
+glcc(){
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative;
+}
+
+# The next line enables shell command completion for gcloud.
+source '/Users/pratama/google-cloud-sdk/completion.zsh.inc'

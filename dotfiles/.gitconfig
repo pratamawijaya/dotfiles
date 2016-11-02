@@ -10,6 +10,7 @@
 [user]
 	name = pratamawijaya
 	email = set.mnemonix@gmail.com
+	signingkey = 029CBEF2
 [merge]
 	tool = opendiff
 [push]
