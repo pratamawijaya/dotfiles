@@ -58,7 +58,6 @@ export PATH="/usr/local/mysql/bin:/Users/pratama/Documents/SDK_BARU/platform-too
 
 export ANDROID_HOME="/Users/pratama/Documents/SDK_BARU"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home"
-export SIGN_KEYPASS="kulina"
 
 export PATH=$PATH:/Users/pratama/Documents/SDK_BARU/platform-tools
 export PATH=$PATH:/Users/pratama/Documents/SDK_BARU/tools
