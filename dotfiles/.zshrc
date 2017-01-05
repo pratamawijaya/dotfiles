@@ -5,7 +5,7 @@ export ZSH=/Users/pratama/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bira"
+ZSH_THEME="bureau"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,16 +53,23 @@ plugins=(git git-flow osx npm battery zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/usr/local/mysql/bin:/Users/pratama/Documents/SDK_BARU/platform-tools:/Users/pratama/Documents/SDK_BARU/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
+export PATH="/usr/local/mysql/bin:/Users/pratama/Documents/SDK/platform-tools:/Users/pratama/Documents/SDK/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export ANDROID_HOME="/Users/pratama/Documents/SDK_BARU"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home"
-
-export PATH=$PATH:/Users/pratama/Documents/SDK_BARU/platform-tools
-export PATH=$PATH:/Users/pratama/Documents/SDK_BARU/tools
-
+export ANDROID_HOME="/Users/pratama/Documents/SDK"
+export NDK_HOME="/Users/pratama/Documents/NDK"
+export KOTLIN_HOME="/Users/pratama/.sdkman/candidates/kotlin/current"
+export GRADLE_HOME="/Users/pratama/.sdkman/candidates/gradle/current"
+export JAVA_HOME="/Users/pratama/.sdkman/candidates/java/current"
+export SIGN_KEYPASS="kulina"
+export KEYSTORE_PASSWORD="pratamawijaya"
+export PATH=$PATH:/Users/pratama/Documents/SDK/platform-tools
+export PATH=$PATH:/Users/pratama/Documents/SDK/tools
+export PATH=$KOTLIN_HOME/bin:$JAVA_HOME/bin:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -90,14 +97,11 @@ export EDITOR='vim -N'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(thefuck --alias)"
-
+#alias vim="/usr/local/bin/mvim"
 alias composer="php /usr/local/bin/composer.phar"
-
+alias androidstudio="open -a /Applications/Android\ Studio.app"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/pratama/google-cloud-sdk/path.zsh.inc'
 # Sonnar
 SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.5/libexec
 
@@ -105,5 +109,14 @@ glcc(){
   git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative;
 }
 
+gac(){
+	git add . && git commit
+}
+
 # The next line enables shell command completion for gcloud.
 source '/Users/pratama/google-cloud-sdk/completion.zsh.inc'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/pratama/.sdkman"
+[[ -s "/Users/pratama/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pratama/.sdkman/bin/sdkman-init.sh"
+eval "$(pyenv init -)"
