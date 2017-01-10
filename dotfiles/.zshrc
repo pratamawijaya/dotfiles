@@ -98,8 +98,15 @@ export EDITOR='vim -N'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #alias vim="/usr/local/bin/mvim"
+alias tmux="tmux -2"
 alias composer="php /usr/local/bin/composer.phar"
 alias androidstudio="open -a /Applications/Android\ Studio.app"
+alias pingg="ping google.com"
+# git push origin tag_name
+alias gput="git push origin"
+# git push --set-upstream origin
+alias gpub="git push --set-upstream origin"
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Sonnar
