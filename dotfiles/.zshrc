@@ -53,7 +53,7 @@ plugins=(git git-flow osx npm battery zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/usr/local/mysql/bin:/Users/pratama/Documents/SDK/platform-tools:/Users/pratama/Documents/SDK/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
+export PATH="/usr/local/mysql/bin:/Users/pratama/Documents/SDK/platform-tools:/Users/pratama/Documents/SDK/tools:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export ANDROID_HOME="/Users/pratama/Documents/SDK"
@@ -70,6 +70,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -106,7 +107,7 @@ alias pingg="ping google.com"
 alias gput="git push origin"
 # git push --set-upstream origin
 alias gpub="git push --set-upstream origin"
-
+alias mkdir="mkdir -p"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Sonnar
@@ -127,3 +128,6 @@ source '/Users/pratama/google-cloud-sdk/completion.zsh.inc'
 export SDKMAN_DIR="/Users/pratama/.sdkman"
 [[ -s "/Users/pratama/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pratama/.sdkman/bin/sdkman-init.sh"
 eval "$(pyenv init -)"
+
+export NVM_DIR="/Users/pratama/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
