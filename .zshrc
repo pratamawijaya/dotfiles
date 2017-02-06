@@ -121,6 +121,11 @@ gac(){
 	git add . && git commit
 }
 
+take(){
+  mkdir -p $1
+  cd $1
+}
+
 # The next line enables shell command completion for gcloud.
 source '/Users/pratama/google-cloud-sdk/completion.zsh.inc'
 
