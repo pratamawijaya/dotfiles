@@ -136,3 +136,6 @@ eval "$(pyenv init -)"
 
 export NVM_DIR="/Users/pratama/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
