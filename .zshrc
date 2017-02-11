@@ -137,5 +137,18 @@ eval "$(pyenv init -)"
 export NVM_DIR="/Users/pratama/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+#autorun tmux
+if [[ -z "$TMUX" ]]
+then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
+    if [[ -z "$ID" ]]
+    then
+        tmux new-session
+    else
+        tmux attach-session -t "$ID"
+    fi
+fi
+
+
 # Autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
