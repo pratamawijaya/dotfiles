@@ -45,8 +45,6 @@ syntax enable     " Use syntax highlighting
 set background=dark
 let g:solarized_termcolors = 256
 colorscheme solarized
-
-set keymap=dvorak
 set ruler laststatus=2 number title hlsearch
 set showmode
 set softtabstop=2
