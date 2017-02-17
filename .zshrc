@@ -53,22 +53,8 @@ plugins=(git git-flow osx npm battery zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/usr/local/mysql/bin:/Users/pratama/Documents/SDK/platform-tools:/Users/pratama/Documents/SDK/tools:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pratama/.rvm/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-export ANDROID_HOME="/Users/pratama/Documents/SDK"
-export NDK_HOME="/Users/pratama/Documents/NDK"
-export KOTLIN_HOME="/Users/pratama/.sdkman/candidates/kotlin/current"
-export GRADLE_HOME="/Users/pratama/.sdkman/candidates/gradle/current"
-export JAVA_HOME="/Users/pratama/.sdkman/candidates/java/current"
-export SIGN_KEYPASS="kulina"
-export KEYSTORE_PASSWORD="pratamawijaya"
-export PATH=$PATH:/Users/pratama/Documents/SDK/platform-tools
-export PATH=$PATH:/Users/pratama/Documents/SDK/tools
-export PATH=$KOTLIN_HOME/bin:$JAVA_HOME/bin:$PATH
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
+source ~/.profile
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
 
@@ -108,6 +94,7 @@ alias gput="git push origin"
 # git push --set-upstream origin
 alias gpub="git push --set-upstream origin"
 alias mkdir="mkdir -p"
+alias phpserver="php -S localhost:8000"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Sonnar
@@ -138,16 +125,16 @@ export NVM_DIR="/Users/pratama/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 #autorun tmux
-if [[ -z "$TMUX" ]]
-then
-    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-    if [[ -z "$ID" ]]
-    then
-        tmux new-session
-    else
-        tmux attach-session -t "$ID"
-    fi
-fi
+# if [[ -z "$TMUX" ]]
+# then
+#     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
+#     if [[ -z "$ID" ]]
+#     then
+#         tmux new-session
+#     else
+#         tmux attach-session -t "$ID"
+#     fi
+# fi
 
 
 # Autojump
