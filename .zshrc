@@ -95,7 +95,7 @@ alias gput="git push origin"
 alias gpub="git push --set-upstream origin"
 alias mkdir="mkdir -p"
 alias phpserver="php -S localhost:8000"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+alias vim='mvim -v'
 
 # Sonnar
 SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.5/libexec
