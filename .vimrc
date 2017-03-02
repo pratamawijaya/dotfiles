@@ -27,6 +27,9 @@ Plugin 'git://git.wincent.com/command-t.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" add pathogen
+execute pathogen#infect()
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -53,3 +56,4 @@ set tabstop=2
 set expandtab
 set backspace=indent,eol,start
 set backspace=2
+nnoremap <C-g> :NERDTreeToggle<CR>
