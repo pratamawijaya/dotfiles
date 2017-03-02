@@ -85,7 +85,7 @@ export EDITOR='vim -N'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #alias vim="/usr/local/bin/mvim"
-alias tmux="tmux -2"
+alias tmux="tmux -2 TERM=screen-256color-bce"
 alias composer="php /usr/local/bin/composer.phar"
 alias androidstudio="open -a /Applications/Android\ Studio.app"
 alias pingg="ping google.com"
