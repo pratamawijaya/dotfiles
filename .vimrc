@@ -1,11 +1,6 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" Remap key
-noremap d h
-noremap h j
-noremap t k
-noremap n l
+set nocompatible 
+set hlsearch 
+noremap t l
 inoremap hh <Esc>
 
 set number        " Show line numbers
