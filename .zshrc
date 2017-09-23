@@ -95,7 +95,6 @@ alias gput="git push origin"
 alias gpub="git push --set-upstream origin"
 alias mkdir="mkdir -p"
 alias phpserver="php -S localhost:8000"
-alias vim='mvim -v'
 
 # Sonnar
 SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.5/libexec
@@ -112,9 +111,6 @@ take(){
   mkdir -p $1
   cd $1
 }
-
-# The next line enables shell command completion for gcloud.
-source '/Users/pratama/google-cloud-sdk/completion.zsh.inc'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/pratama/.sdkman"
