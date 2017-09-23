@@ -1,3 +1,6 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/pratama/.oh-my-zsh
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -92,6 +95,7 @@ alias gput="git push origin"
 alias gpub="git push --set-upstream origin"
 alias mkdir="mkdir -p"
 alias phpserver="php -S localhost:8000"
+alias checktemp="watch --color -n0 istats"
 
 # Sonnar
 SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.5/libexec
@@ -108,6 +112,27 @@ take(){
   mkdir -p $1
   cd $1
 }
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/pratama/.sdkman"
 [[ -s "/Users/pratama/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pratama/.sdkman/bin/sdkman-init.sh"
+eval "$(pyenv init -)"
+
+export NVM_DIR="/Users/pratama/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#autorun tmux
+# if [[ -z "$TMUX" ]]
+# then
+#     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
+#     if [[ -z "$ID" ]]
+#     then
+#         tmux new-session
+#     else
+#         tmux attach-session -t "$ID"
+#     fi
+# fi
+
+
+# Autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
