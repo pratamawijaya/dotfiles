@@ -86,7 +86,7 @@ export EDITOR='vim -N'
 
 #alias vim="/usr/local/bin/mvim"
 alias tmux="tmux -2"
-alias composer="php /usr/local/bin/composer.phar"
+alias composer="php /usr/local/bin/composer"
 alias androidstudio="open -a /Applications/Android\ Studio.app"
 alias pingg="ping google.com"
 # git push origin tag_name
@@ -96,6 +96,7 @@ alias gpub="git push --set-upstream origin"
 alias mkdir="mkdir -p"
 alias phpserver="php -S localhost:8000"
 alias checktemp="watch --color -n0 istats"
+alias showdate="date \"+%H:%M:%S   %d/%m/%y \""
 
 # Sonnar
 SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.5/libexec
