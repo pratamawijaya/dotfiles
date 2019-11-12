@@ -1,24 +1,39 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/pratama/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="bureau"
+# Path to your oh-my-zsh installation.
+export ZSH="/home/pratamawijaya/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME=""
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -27,7 +42,7 @@ ZSH_THEME="bureau"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -39,24 +54,28 @@ ENABLE_CORRECTION="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow osx npm battery zsh-syntax-highlighting)
-
-# User configuration
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.profile
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -67,13 +86,9 @@ export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='vim -N'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -87,7 +102,6 @@ export EDITOR='vim -N'
 #alias vim="/usr/local/bin/mvim"
 alias tmux="tmux -2"
 alias composer="php /usr/local/bin/composer"
-alias androidstudio="open -a /Applications/Android\ Studio.app"
 alias pingg="ping google.com"
 # git push origin tag_name
 alias gput="git push origin"
@@ -97,9 +111,22 @@ alias mkdir="mkdir -p"
 alias phpserver="php -S localhost:8000"
 alias checktemp="watch --color -n0 istats"
 alias showdate="date \"+%H:%M:%S   %d/%m/%y \""
+alias gdebug="./gradlew clean assembleDebug"
 
-# Sonnar
-SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.5/libexec
+fpath+=("$HOME/.zsh/pure")
+
+autoload -U promptinit; promptinit
+
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+
+# change the path color
+zstyle :prompt:pure:path color cyan
+
+# change the color for both `prompt:success` and `prompt:error`
+zstyle ':prompt:pure:prompt:*' color green
+
+prompt pure
 
 glcc(){
   git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative;
@@ -115,25 +142,9 @@ take(){
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/pratama/.sdkman"
-[[ -s "/Users/pratama/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pratama/.sdkman/bin/sdkman-init.sh"
-eval "$(pyenv init -)"
+#export SDKMAN_DIR="/home/pratamawijaya/.sdkman"
+#[[ -s "/home/pratamawijaya/.sdkman/bin/sdkman-init.sh" ]] && source "/home/pratamawijaya/.sdkman/bin/sdkman-init.sh"
 
-export NVM_DIR="/Users/pratama/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s /home/pratamawijaya/.autojump/etc/profile.d/autojump.sh ]] && source /home/pratamawijaya/.autojump/etc/profile.d/autojump.sh
 
-#autorun tmux
-# if [[ -z "$TMUX" ]]
-# then
-#     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-#     if [[ -z "$ID" ]]
-#     then
-#         tmux new-session
-#     else
-#         tmux attach-session -t "$ID"
-#     fi
-# fi
-
-
-# Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+	autoload -U compinit && compinit -u
