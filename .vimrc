@@ -1,6 +1,8 @@
 set nocompatible 
 set hlsearch 
 noremap t l
+:nnoremap b h " remap h to b for dvorak
+:nnoremap m l " remap l to m for dvorak
 inoremap hh <Esc>
 
 set number        " Show line numbers
