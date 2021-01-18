@@ -23,3 +23,5 @@
   b  = branch 
 [commit]
 	template = ~/.gitcommitmsg.txt
+[pull]
+	rebase = true
