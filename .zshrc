@@ -112,6 +112,10 @@ alias phpserver="php -S localhost:8000"
 alias checktemp="watch --color -n0 istats"
 alias showdate="date \"+%H:%M:%S   %d/%m/%y \""
 alias gdebug="./gradlew clean assembleDebug"
+# flutter
+alias flpgr = "flutter pub get run"
+alias flpga = "flutter pub add"
+alias flcr = "flutter create -t skeleton"
 
 fpath+=("$HOME/.zsh/pure")
 
