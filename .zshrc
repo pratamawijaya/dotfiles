@@ -1,8 +1,8 @@
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
+
+
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -105,6 +105,9 @@ alias flpgr="flutter pub get run"
 alias flpga="flutter pub add"
 alias flcr="flutter create -t skeleton"
 alias nv="nvim"
+alias kubectl="minikube kubectl --"
+# android
+alias applink="adb shell am start -W -a android.intent.action.VIEW -d '$1'"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -158,16 +161,16 @@ eval "$(pyenv init -)"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/pratamanurwijaya/.sdkman"
 [[ -s "/Users/pratamanurwijaya/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pratamanurwijaya/.sdkman/bin/sdkman-init.sh"
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
+
+
+export PATH="$PATH:/Users/pratamanurwijaya/.foundry/bin"
