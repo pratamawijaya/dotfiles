@@ -1,6 +1,5 @@
 " location : .config/nvim/init.vim
 
-
 :set number
 :set relativenumber
 :set autoindent
@@ -23,17 +22,24 @@ Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'windwp/nvim-autopairs'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'Yggdroot/indentLine'
 
 set encoding=UTF-8
 
 call plug#end()
 
 nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTree<CR> " Ctrl+n 
+nnoremap <C-t> :NERDTreeToggle<CR> " Ctrl+t toggle nerdtree
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+
+let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_leadingSpaceEnabled='1'
+
 
 " air-line
 let g:airline_powerline_fonts = 1
