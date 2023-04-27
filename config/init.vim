@@ -30,9 +30,9 @@ set encoding=UTF-8
 
 call plug#end()
 
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR> " Ctrl+n 
-nnoremap <C-t> :NERDTreeToggle<CR> " Ctrl+t toggle nerdtree
+nnoremap <C-f> :NERDTreeFocus %<CR>
+nnoremap <C-n> :NERDTree %<CR> " Ctrl+n 
+nnoremap <C-t> :NERDTreeToggle %<CR> " Ctrl+t toggle nerdtree
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
