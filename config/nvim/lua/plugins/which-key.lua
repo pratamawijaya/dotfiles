@@ -4,6 +4,8 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("user.whichkey")
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
 		end,
 	
 }
