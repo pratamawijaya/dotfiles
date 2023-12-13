@@ -20,3 +20,6 @@ keymap.set("n", "<C-w>d", "<C-w><", { desc = "rezize window to left" })
 keymap.set("n", "<C-w>n", "<C-w>>", { desc = "rezize window to right" })
 keymap.set("n", "<C-w>h", "<C-w>-", { desc = "rezize window to down" })
 keymap.set("n", "<C-w>h", "<C-w>+", { desc = "rezize window to up" })
+
+-- test tex baru
+-- test baru 2
