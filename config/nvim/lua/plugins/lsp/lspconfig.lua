@@ -94,6 +94,22 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure gopls server
+		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				gopls = {
+					experimentalPostfixCompletions = true,
+					analyses = {
+						unusedparams = true,
+						shadow = true,
+					},
+					staticcheck = true,
+				},
+			},
+		})
+
 		-- configure svelte server
 		lspconfig["svelte"].setup({
 			capabilities = capabilities,
