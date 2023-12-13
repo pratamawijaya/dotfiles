@@ -12,6 +12,9 @@ keymap.set("n", "<leader>st", "<C-w>k", { desc = "move to window top" })
 keymap.set("n", "<leader>sh", "<C-w>j", { desc = "move to window bottom" })
 keymap.set("n", "<leader>sn", "<C-w>l", { desc = "move to window right" })
 
+-- ini text baru
+-- update text
+
 -- window resize
 keymap.set("n", "<C-w>d", "<C-w><", { desc = "rezize window to left" })
 keymap.set("n", "<C-w>n", "<C-w>>", { desc = "rezize window to right" })
