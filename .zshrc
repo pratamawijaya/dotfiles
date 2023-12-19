@@ -15,8 +15,6 @@ export ANDROID_NDK="/Users/pratamanurwijaya/Documents/NDK"
 export ANDROID_SDK_ROOT="/Users/pratamanurwijaya/Documents/SDK/Android"
 export ANDROID_TOOLS="/Users/pratamanurwijaya/Documents/SDK/Android/tools/bin"
 export FLUTTER_HOME="/Users/pratamanurwijaya/Documents/SDK/flutter/bin"
-
-# export FIREBASE_TOKEN="1//0gXLSpyztR4RnCgYIARAAGBASNwF-L9IrZ-dcxHbWiIb4dWa-BpZNoqCRFdFusoolCLREg8A8VZ2pEue1M5drvquDcZjtfYFkJ5o"
 export PUB_CACHE="$HOME/.pub-cache/bin"
 
 export PATH=$PATH:$HOME/.apk2gold-reloaded
