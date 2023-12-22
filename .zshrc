@@ -15,6 +15,8 @@ export ANDROID_NDK="/Users/pratamanurwijaya/Documents/NDK"
 export ANDROID_SDK_ROOT="/Users/pratamanurwijaya/Documents/SDK/Android"
 export ANDROID_TOOLS="/Users/pratamanurwijaya/Documents/SDK/Android/tools/bin"
 export FLUTTER_HOME="/Users/pratamanurwijaya/Documents/SDK/flutter/bin"
+
+# export FIREBASE_TOKEN="1//0gXLSpyztR4RnCgYIARAAGBASNwF-L9IrZ-dcxHbWiIb4dWa-BpZNoqCRFdFusoolCLREg8A8VZ2pEue1M5drvquDcZjtfYFkJ5o"
 export PUB_CACHE="$HOME/.pub-cache/bin"
 
 export PATH=$PATH:$HOME/.apk2gold-reloaded
@@ -54,7 +56,7 @@ alias java17="export JAVA_HOME=$JAVA_17_HOME"
 alias droidlog="~/Documents/Workspaces/Tools/pidcat/pidcat.py"
 
 # Set default to Java 11
-java11
+java17
 
 # User configuration
 # 
@@ -63,6 +65,7 @@ alias gw="./gradlew"
 alias vim="nvim"
 alias composer="php /usr/local/bin/composer"
 alias pingg="ping 8.8.8.8"
+alias gco="git checkout -b "
 # git push origin tag_name
 alias gput="git push origin"
 alias gpuc="git push -u origin HEAD"
@@ -80,7 +83,7 @@ alias flcr="flutter create -t skeleton"
 alias drun="dart run build_runner watch -d"
 alias emu="$ANDROID_HOME/tools/emulator"
 alias runemu="emu -avd flutter_emulator"
-alias ll="ls -l"
+alias ll="ls -al"
 
 # tmux
 alias tm="tmux"
@@ -98,7 +101,27 @@ tmk(){
   tmux kill-session -t $1
 }
 
+#git delete branch by prefix
+gdb(){
+  git branch | grep $1 | xargs git branch -D
+}
 
+glcc(){
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative;
+}
+
+gac(){
+	git add . && git commit
+}
+
+gfp(){
+  git fetch && git pull
+}
+
+take(){
+  mkdir -p $1
+  cd $1
+}
 
 alias nv="nvim"
 alias kubectl="minikube kubectl --"
