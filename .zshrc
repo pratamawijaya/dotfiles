@@ -1,65 +1,89 @@
-ZSH="/Users/pratamanurwijaya/.oh-my-zsh/"
+# ---------- Zinit ----------
+# --- https://gist.github.com/n1snt/2cccc8aa5f7b645a7628d3512c70deb6 ---
+export ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
 
-# ZSH_THEME=robbyrussell
+if [[ -r "$ZINIT_HOME/zinit.zsh" ]]; then
+    source "$ZINIT_HOME/zinit.zsh"
+fi
 
-#Plugins
-plugins=(git zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
+# ---------- Prompt ----------
+export STARSHIP_LOG=error
+eval "$(starship init zsh)"
 
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
+# ---------- Completion ----------
+autoload -Uz compinit
 
+# Use a cached completion dump
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}"
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zcompdump"
 
-#PATH
-export ANDROID_HOME="/Users/pratamanurwijaya/Documents/SDK/Android"
-export ANDROID_NDK="/Users/pratamanurwijaya/Documents/NDK"
-export ANDROID_SDK_ROOT="/Users/pratamanurwijaya/Documents/SDK/Android"
-export ANDROID_TOOLS="/Users/pratamanurwijaya/Documents/SDK/Android/tools/bin"
-export FLUTTER_HOME="/Users/pratamanurwijaya/Documents/SDK/flutter/bin"
+# Better completion UX
+zstyle ':completion:*' menu select
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' verbose yes
 
-# export FIREBASE_TOKEN="1//0gXLSpyztR4RnCgYIARAAGBASNwF-L9IrZ-dcxHbWiIb4dWa-BpZNoqCRFdFusoolCLREg8A8VZ2pEue1M5drvquDcZjtfYFkJ5o"
-export PUB_CACHE="$HOME/.pub-cache/bin"
+# Case-insensitive + partial matching
+zstyle ':completion:*' matcher-list \
+    'm:{a-z}={A-Za-z}' \
+    'r:|=*' \
+    'l:|=* r:|=*'
 
-export PATH=$PATH:$HOME/.apk2gold-reloaded
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-export PATH=$PATH:$ANDROID_NDK
-export PATH=$PATH:$ANDROID_TOOLS
-export PATH=$PATH:$FLUTTER_HOME
-# export PATH=$PATH:$JAVA_HOME
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
-# golang
-export PATH=$PATH:/usr/local/go/bin
-# bazel build
-export PATH="$PATH:$HOME/bin"
-# flutter pub cache
-export PATH=$PATH:$PUB_CACHE
-export PATH="$PATH:$PUB_CACHE/bin"
+# Group matches
+zstyle ':completion:*' group-name ''
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$PATH":"$HOME/.maestro/bin"
+# Group descriptions
+zstyle ':completion:*:descriptions' format '%F{yellow}%d%f'
 
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:$HOME/.local/bin"
+# Colored completion menus
+zstyle ':completion:*' list-colors ''
 
-export PATH="$PATH:/Users/pratamanurwijaya/.foundry/bin"
+# Better process completion
+zstyle ':completion:*:*:*:*:processes' command \
+    'ps -u $USER -o pid,user,comm -w -w'
 
-export JAVA_11_HOME=/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
-export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
-export JAVA_17_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
+# ---------- Plugins ----------
 
-alias java11="export JAVA_HOME=$JAVA_11_HOME"
-alias java8="export JAVA_HOME=$JAVA_8_HOME"
-alias java17="export JAVA_HOME=$JAVA_17_HOME"
+# Fish-style suggestions
+zinit light zsh-users/zsh-autosuggestions
 
-alias droidlog="~/Documents/Workspaces/Tools/pidcat/pidcat.py"
+# Syntax highlighting (must be last)
+zinit light zsh-users/zsh-syntax-highlighting
 
-# Set default to Java 11
-java17
+# ---------- History ----------
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=5000
+SAVEHIST=5000
 
-# User configuration
-# 
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
+setopt EXTENDED_HISTORY
+
+# ---------- Shell ----------
+setopt AUTO_CD
+setopt INTERACTIVE_COMMENTS
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+
+# ---------- Lazy NVM ----------
+export NVM_DIR="$HOME/.nvm"
+
+load-nvm() {
+    unset -f node npm npx nvm
+    [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+}
+
+for cmd in node npm npx nvm; do
+    eval "$cmd() {
+        load-nvm
+        command $cmd \"\$@\"
+    }"
+done
+
+# --------- Alias -------
 alias gw="./gradlew"
 #alias vim="/usr/local/bin/mvim"
 alias vim="nvim"
@@ -123,25 +147,40 @@ take(){
   cd $1
 }
 
-alias nv="nvim"
-alias kubectl="minikube kubectl --"
-# android
-alias applink="adb shell am start -W -a android.intent.action.VIEW -d '$1'"
-alias gradle-all-deps='./gradlew dependencies $(./gradlew -q projects \
-    | grep -Fe ---\ Project \
-    | sed -Ee "s/^.+--- Project '"'([^']+)'/\1:dependencies/"'")'
 
-#Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# Local bin
+export PATH="$HOME/.local/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/pratamanurwijaya/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# bun completions
+[ -s "/Users/pratamanurwijaya/.bun/_bun" ] && source "/Users/pratamanurwijaya/.bun/_bun"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
-eval "$(starship init zsh)"
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
